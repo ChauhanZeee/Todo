@@ -11,13 +11,13 @@ import java.util.function.Predicate;
 public class TodoService implements ITodoService {
     private static List<Todo> todos= new ArrayList<>(); // in memory database;
     private static int todoCount = 0;
-    static {
-        todos.add(new Todo(++todoCount, "learn spring boot", false));
-        todos.add(new Todo(++todoCount, "monday", false));
-        todos.add(new Todo(++todoCount, "tuesday", false));
-        todos.add(new Todo(++todoCount, "wednesday", false));
-        todos.add(new Todo(++todoCount, "thursday", false));
-    }
+//    static {
+//        todos.add(new Todo(++todoCount, "learn spring boot", false));
+//        todos.add(new Todo(++todoCount, "monday", false));
+//        todos.add(new Todo(++todoCount, "tuesday", false));
+//        todos.add(new Todo(++todoCount, "wednesday", false));
+//        todos.add(new Todo(++todoCount, "thursday", false));
+//    }
     @Override
     public List<Todo> findAll(){ // business logic;
         return todos;
@@ -34,8 +34,9 @@ public class TodoService implements ITodoService {
     }
     @Override
     public void deleteTodo(int id){
-        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
-        todos.removeIf(predicate);
+//        Predicate<? super Todo> predicate = todo -> todo.getId() == id;
+//        todos.removeIf(predicate);
+        todos.removeIf(todo -> todo.getId() == id);
     }
     @Override
     public void updateTodo(int id, Todo newTodo){

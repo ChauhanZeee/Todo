@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity //to connect with database
+@Entity //creating table in database using java classes
 
 public class Todo {
     @Id // use tp make primary key

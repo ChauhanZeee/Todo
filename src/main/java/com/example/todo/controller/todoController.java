@@ -45,23 +45,30 @@ public class todoController {
 //        this.todoService = todoService;
 //    }
     //in order to not write constructor we use autowired annotation.
+
+    //http://localhost:8080/api/v1/todo-app/add-todo
     @PostMapping("/add-todo")
     public void createTodo(@RequestBody Todo todo){
         todoService.addTodo(todo);
     }
-    @GetMapping("find-todo/id/{id}")
+
+    //http://localhost:8080/api/v1/todo-app/find-todo/id/{id}
+    @GetMapping("/find-todo/id/{id}")
     public Todo findTodoById(@PathVariable int id){
         return todoService.findById(id);
     }
+
     //http://localhost:8080/api/v1/todo-app/find-all
     @GetMapping("/find-all")
     public List<Todo> findAllTodo(){ // controller is talking to service layer;
         return todoService.findAll();
     }
+    //http://localhost:8080/api/v1/todo-app/update-todo/id/{id}
     @PutMapping("/update-todo/id/{id}")
     public void updateTodo(@PathVariable int id, @RequestBody Todo todo){
         todoService.updateTodo(id, todo);
     }
+    //http://localhost:8080/api/v1/todo-app/to-delete/id/{id}
     @DeleteMapping("/to-delete/id/{id}")
     public ResponseEntity<Todo> deleteTodo(@PathVariable int id){
         todoService.deleteTodo(id);
